@@ -1,0 +1,9 @@
+Raw EEG Files:
+ - Coady_L1h1_awake_10min.csv
+ - Coady_L1h2_awake_10min.csv
+ - Coady_L1h3_near_awake_10min.csv
+ - Coady_L1h4_near_drowsy_10min.csv
+ - Coady_L1h5_drowsy_10min.csv
+ - Coady_L1h6_drowsy_10min.csv
+Number of awake: 3
+Number of drowsy: 3

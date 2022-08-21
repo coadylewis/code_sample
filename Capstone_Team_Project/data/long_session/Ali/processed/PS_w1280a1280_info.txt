@@ -1,0 +1,8 @@
+Raw EEG Files:
+ - Ali_L1h2_awake_10min.csv
+ - Ali_L1h3_awake_10min.csv
+ - Ali_L1h4_near_awake_10min.csv
+ - Ali_L1h5_near_drowsy_10min.csv
+ - Ali_L1h6_drowsy_10min.csv
+Number of awake: 3
+Number of drowsy: 2

@@ -1,0 +1,44 @@
+These are the instructions for what you can put into a world using
+	the text interface. 
+
+Unknown tokens are ignored. Valid commands can start anywhere, not just
+	at the beginnings of lines. After a known keyword, the correct 
+	number of arguments MUST occur, separated by spaces. 
+	Otherwise you get an unhandled exception. 
+
+The keyword commands can come in any order and can be repeated. 
+
+The recognized keywords (case is ignored) and the number of integer 
+	arguments for each is as follows.
+
+streets 1
+	the parameter is the number of streets to draw (use about 10).
+avenues 1
+	the parameter is the number of avenues to draw (use about 10).
+beepers 3
+	e.g. beepers 3 4 1 means that at the corner of street 3 and 
+	avenue 4 there is 1 beeper
+eastwestwalls 3
+	e.g. eastwestwalls 3 2 4 means that North of street 3 there 
+	is a wall that crosses avenues 2 through 4
+northsouthwalls 3
+	e.g. northsouthwalls 1 4 4 means that East of Avenue 1 there 
+	is a wall that crosses only street 4 (streets 4 through 4). 
+
+
+Sample:
+
+KarelWorld
+Streets 12
+Avenues 8
+beepers 3 4 1
+beepers 4 2 1
+eastwestwalls 3 2 4
+northsouthwalls 4 2 2
+northsouthwalls 4 3 3
+northsouthwalls 1 5 5
+northsouthwalls 1 4 4
+
+
+
+Note that this is the same format as that read and written to files. 

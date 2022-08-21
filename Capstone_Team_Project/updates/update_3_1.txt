@@ -1,0 +1,21 @@
+ECEN 404-906
+Team 61: Driver Drowsiness Detection System
+Update 3/1/2022 for Max Lesser
+
+---[Ali Imran - ML Model]---
+Progress: 
+ - integrated Neural Network models to Live Analysis scripts
+
+Plans:
+ - test the models, then further train the models with that newly collected data
+ - test the models on my own awake and drowsy data (I've only done some awake testing for myself so far) 
+
+
+---[Coady Lewis - Signal Processing]---
+
+
+
+---[Dakota Mouton - EEG Device]---
+ - Integrating SPI and I2C serial communication protocols for receiving data from EEG.
+ - Fixing live spectrum analzyer with new data retreival above ^^.
+ - Waiting on PCB and a couple of new parts to come in to solder together and start validations.

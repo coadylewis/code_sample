@@ -1,0 +1,17 @@
+ECEN 404-906
+Team 61: Driver Drowsiness Detection System
+Update 3/22/2022 for Max Lesser
+
+---[Ali Imran/Coady Lewis]---
+Progress: 
+ - Finished Constructing LSTM
+ - Tested and accuracy in on par with the KSVM for Coady and Ali's datasets
+ - Nearly finished with live LSTM implementation
+
+Plans:
+ - Test LSTM on datasets from new people and on transition states
+ - Finish setup for continuous labeling on LSTM
+ - collect more data from other people
+
+
+---[Dakota Mouton - EEG Device]---

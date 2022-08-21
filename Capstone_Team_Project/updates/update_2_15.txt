@@ -1,0 +1,36 @@
+ECEN 404-906
+Team 61: Driver Drowsiness Detection System
+Update 2/15/2022 for Max Lesser
+
+--Ali Imran - ML Model--
+Finished ML Model's Live Analysis functions:
+  - saving/loading trained ML model and normalization parameters
+  - trained model predicting label for new processed data
+
+
+--Coady Lewis - Signal Processing--
+Finished integrating ML code with live analysis
+  - classifies data in real time from an updating file
+  - logs information about outputs
+  - saves raw data from run as a backup
+  - tested with test script and with real muse stream
+Partially automated parameter tuning for the SPML script
+  - can test any number of specified (window, advancement) pairs
+  - used to test 20 different combinations, as well as record their runtime
+  
+
+
+--Dakota Mouton - EEG Device--
+Resolved bug with incoming signal from EEG circuit
+  -The live signal from the electrodes to the arduino would only pick
+  up a signal on first contact with the electrodes and then would zero out
+  but after adding a third electrode to be the reference ground electrode and
+  leaving the other two as the positive and negative input electrodes the signal
+  is now continous and able to better processed.
+Continuing progress on EEG/computer interface integration via arduino MCU
+  -made great progress on python code that graphs both the live signal from the electrodes
+  and displaying the FFT spectrum analyzer graph to show spikes at our target frequencies.
+  -Although the live signal is now working the FFT graph is not updating from the input signal
+  data yet so I will be troubleshooting this issue and get the FFT graph updating with the
+  live signal so you can see both at the same time updating at the same time for accurate
+  analysis of what the hardware is doing.

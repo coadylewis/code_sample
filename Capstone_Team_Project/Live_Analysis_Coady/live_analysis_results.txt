@@ -1,0 +1,570 @@
+
+
+
+
+
+
+
+
+
+Data File: live_analysis_testcase.csv
+Model Tested = PS_w1280a100
+Date: 19/02/2022 17:01:58
+
+
+
+Samples in Interval = 1284
+Start = 39805
+End = 41088
+timestamp = 5.0117316246032715 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 1
+
+
+
+Samples in Interval = 1284
+Start = 41089
+End = 42372
+timestamp = 10.022202014923096 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 2
+
+
+
+Samples in Interval = 1284
+Start = 42373
+End = 43656
+timestamp = 15.0465247631073 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 3
+
+
+
+
+
+
+
+
+
+
+
+Data File: live_analysis_testcase.csv
+Model Tested = PS_w1280a100
+Date: 19/02/2022 17:26:06
+
+
+
+Samples in Interval = 1284
+Start = 28249
+End = 29532
+timestamp = 5.015429258346558 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 1
+
+
+
+Samples in Interval = 1284
+Start = 29533
+End = 30816
+timestamp = 10.023747682571411 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 2
+
+
+
+
+
+
+
+
+
+
+
+Data File: live_analysis_testcase.csv
+Model Tested = PS_w1280a100
+Date: 19/02/2022 18:58:18
+
+
+
+Samples in Interval = 1284
+Start = 21829
+End = 23112
+timestamp = 5.018103837966919 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 1
+
+
+
+Samples in Interval = 1284
+Start = 23113
+End = 24396
+timestamp = 10.029320001602173 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 2
+
+
+
+Samples in Interval = 1284
+Start = 24397
+End = 25680
+timestamp = 15.048737525939941 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 3
+
+
+
+Samples in Interval = 1284
+Start = 25681
+End = 26964
+timestamp = 20.065105199813843 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 4
+
+
+
+Samples in Interval = 1284
+Start = 26965
+End = 28248
+timestamp = 25.08074927330017 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 5
+
+
+
+Samples in Interval = 1284
+Start = 28249
+End = 29532
+timestamp = 30.088855504989624 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 6
+
+
+
+Samples in Interval = 1284
+Start = 29533
+End = 30816
+timestamp = 35.107473611831665 s
+[0]
+awake
+Drowsy Fraction = 0.0
+Awake Fraction = 1.0
+Output Count = 7
+
+
+
+Samples in Interval = 1284
+Start = 30817
+End = 32100
+timestamp = 40.12201929092407 s
+[1]
+drowsy
+Drowsy Fraction = 0.125
+Awake Fraction = 0.875
+Output Count = 8
+
+
+
+Samples in Interval = 1284
+Start = 32101
+End = 33384
+timestamp = 45.14406609535217 s
+[0]
+awake
+Drowsy Fraction = 0.1111111111111111
+Awake Fraction = 0.8888888888888888
+Output Count = 9
+
+
+
+Samples in Interval = 1284
+Start = 33385
+End = 34668
+timestamp = 50.158814907073975 s
+[0]
+awake
+Drowsy Fraction = 0.1
+Awake Fraction = 0.9
+Output Count = 10
+
+
+
+Samples in Interval = 1284
+Start = 34669
+End = 35952
+timestamp = 55.16790986061096 s
+[1]
+drowsy
+Drowsy Fraction = 0.18181818181818182
+Awake Fraction = 0.8181818181818182
+Output Count = 11
+
+
+
+Samples in Interval = 1284
+Start = 35953
+End = 37236
+timestamp = 60.18412518501282 s
+[0]
+awake
+Drowsy Fraction = 0.16666666666666666
+Awake Fraction = 0.8333333333333334
+Output Count = 12
+
+
+
+Samples in Interval = 1284
+Start = 37237
+End = 38520
+timestamp = 65.2068498134613 s
+[0]
+awake
+Drowsy Fraction = 0.15384615384615385
+Awake Fraction = 0.8461538461538461
+Output Count = 13
+
+
+
+Samples in Interval = 1284
+Start = 38521
+End = 39804
+timestamp = 70.21554923057556 s
+[1]
+drowsy
+Drowsy Fraction = 0.21428571428571427
+Awake Fraction = 0.7857142857142857
+Output Count = 14
+
+
+
+Samples in Interval = 1284
+Start = 39805
+End = 41088
+timestamp = 75.2383394241333 s
+[0]
+awake
+Drowsy Fraction = 0.2
+Awake Fraction = 0.8
+Output Count = 15
+
+
+
+Samples in Interval = 1284
+Start = 41089
+End = 42372
+timestamp = 80.24953937530518 s
+[0]
+awake
+Drowsy Fraction = 0.1875
+Awake Fraction = 0.8125
+Output Count = 16
+
+
+
+Samples in Interval = 1284
+Start = 42373
+End = 43656
+timestamp = 85.29046773910522 s
+[0]
+awake
+Drowsy Fraction = 0.17647058823529413
+Awake Fraction = 0.8235294117647058
+Output Count = 17
+
+
+
+Samples in Interval = 1284
+Start = 43657
+End = 44940
+timestamp = 90.27715635299683 s
+[0]
+awake
+Drowsy Fraction = 0.16666666666666666
+Awake Fraction = 0.8333333333333334
+Output Count = 18
+
+
+
+Samples in Interval = 1284
+Start = 44941
+End = 46224
+timestamp = 95.29464530944824 s
+[0]
+awake
+Drowsy Fraction = 0.15789473684210525
+Awake Fraction = 0.8421052631578947
+Output Count = 19
+
+
+
+Samples in Interval = 1284
+Start = 46225
+End = 47508
+timestamp = 100.3118326663971 s
+[0]
+awake
+Drowsy Fraction = 0.15
+Awake Fraction = 0.85
+Output Count = 20
+
+
+
+Samples in Interval = 1284
+Start = 47509
+End = 48792
+timestamp = 105.32741618156433 s
+[0]
+awake
+Drowsy Fraction = 0.14285714285714285
+Awake Fraction = 0.8571428571428571
+Output Count = 21
+
+
+
+Samples in Interval = 1284
+Start = 48793
+End = 50076
+timestamp = 110.34402990341187 s
+[0]
+awake
+Drowsy Fraction = 0.13636363636363635
+Awake Fraction = 0.8636363636363636
+Output Count = 22
+
+
+
+Samples in Interval = 1284
+Start = 50077
+End = 51360
+timestamp = 115.35828948020935 s
+[0]
+awake
+Drowsy Fraction = 0.13043478260869565
+Awake Fraction = 0.8695652173913043
+Output Count = 23
+
+
+
+Samples in Interval = 1284
+Start = 51361
+End = 52644
+timestamp = 120.37855076789856 s
+[0]
+awake
+Drowsy Fraction = 0.125
+Awake Fraction = 0.875
+Output Count = 24
+
+
+
+Samples in Interval = 1284
+Start = 52645
+End = 53928
+timestamp = 125.39425873756409 s
+[0]
+awake
+Drowsy Fraction = 0.12
+Awake Fraction = 0.88
+Output Count = 25
+
+
+
+Samples in Interval = 1284
+Start = 53929
+End = 55212
+timestamp = 130.40398168563843 s
+[0]
+awake
+Drowsy Fraction = 0.11538461538461539
+Awake Fraction = 0.8846153846153846
+Output Count = 26
+
+
+
+Samples in Interval = 1284
+Start = 55213
+End = 56496
+timestamp = 135.4262158870697 s
+[0]
+awake
+Drowsy Fraction = 0.1111111111111111
+Awake Fraction = 0.8888888888888888
+Output Count = 27
+
+
+
+Samples in Interval = 1284
+Start = 56497
+End = 57780
+timestamp = 140.43782496452332 s
+[0]
+awake
+Drowsy Fraction = 0.10714285714285714
+Awake Fraction = 0.8928571428571429
+Output Count = 28
+
+
+
+Samples in Interval = 1284
+Start = 57781
+End = 59064
+timestamp = 145.4574363231659 s
+[0]
+awake
+Drowsy Fraction = 0.10344827586206896
+Awake Fraction = 0.896551724137931
+Output Count = 29
+
+
+
+Samples in Interval = 1284
+Start = 59065
+End = 60348
+timestamp = 150.4709370136261 s
+[0]
+awake
+Drowsy Fraction = 0.1
+Awake Fraction = 0.9
+Output Count = 30
+
+
+
+Samples in Interval = 1284
+Start = 60349
+End = 61632
+timestamp = 155.48059606552124 s
+[0]
+awake
+Drowsy Fraction = 0.0967741935483871
+Awake Fraction = 0.9032258064516129
+Output Count = 31
+
+
+
+Samples in Interval = 1284
+Start = 61633
+End = 62916
+timestamp = 160.50089859962463 s
+[0]
+awake
+Drowsy Fraction = 0.09375
+Awake Fraction = 0.90625
+Output Count = 32
+
+
+
+Samples in Interval = 1284
+Start = 62917
+End = 64200
+timestamp = 165.51123642921448 s
+[0]
+awake
+Drowsy Fraction = 0.09090909090909091
+Awake Fraction = 0.9090909090909091
+Output Count = 33
+
+
+
+Samples in Interval = 1284
+Start = 64201
+End = 65484
+timestamp = 170.52632808685303 s
+[0]
+awake
+Drowsy Fraction = 0.08823529411764706
+Awake Fraction = 0.9117647058823529
+Output Count = 34
+
+
+
+Samples in Interval = 1284
+Start = 65485
+End = 66768
+timestamp = 175.54948592185974 s
+[0]
+awake
+Drowsy Fraction = 0.08571428571428572
+Awake Fraction = 0.9142857142857143
+Output Count = 35
+
+
+
+Samples in Interval = 1284
+Start = 66769
+End = 68052
+timestamp = 180.55836629867554 s
+[0]
+awake
+Drowsy Fraction = 0.08333333333333333
+Awake Fraction = 0.9166666666666666
+Output Count = 36
+
+
+
+Samples in Interval = 1284
+Start = 68053
+End = 69336
+timestamp = 185.57915353775024 s
+[0]
+awake
+Drowsy Fraction = 0.08108108108108109
+Awake Fraction = 0.918918918918919
+Output Count = 37
+
+
+
+Samples in Interval = 1284
+Start = 69337
+End = 70620
+timestamp = 190.58895444869995 s
+[0]
+awake
+Drowsy Fraction = 0.07894736842105263
+Awake Fraction = 0.9210526315789473
+Output Count = 38
+
+
+
+Samples in Interval = 1284
+Start = 70621
+End = 71904
+timestamp = 195.60459542274475 s
+[1]
+drowsy
+Drowsy Fraction = 0.10256410256410256
+Awake Fraction = 0.8974358974358975
+Output Count = 39
+
+

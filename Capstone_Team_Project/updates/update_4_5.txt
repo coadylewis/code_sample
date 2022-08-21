@@ -1,0 +1,16 @@
+ECEN 404-906
+Team 61: Driver Drowsiness Detection System
+Update 4/05/2022 for Max Lesser
+
+---[Ali Imran/Coady Lewis]---
+Progress: 
+ - Implemented RNN and RNN-CNN hybrid
+ - live analysis supports 2D input for RNN/RCNN
+ - collected and tested long session data from Ali which spans awake->drowsy data
+
+Plans:
+ - collect and test long session data from Coady and Dakota
+ - prioritize performance on subjects that trained the model (Ali and Coady)
+
+
+---[Dakota Mouton - EEG Device]---

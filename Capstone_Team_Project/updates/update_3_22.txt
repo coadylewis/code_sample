@@ -1,0 +1,20 @@
+ECEN 404-906
+Team 61: Driver Drowsiness Detection System
+Update 3/22/2022 for Max Lesser
+
+---[Ali Imran/Coady Lewis]---
+Progress: 
+ - tested model with data from new subject (Dakota)
+ - tested model with "grey area" data
+ - light testing done over quick transition periods (awake->drowsy->awake)
+ - data augmentation script completed
+
+Plans:
+ - extend current Neural Network with LSTM layer (create an RNN) to classify over sequenced data
+ - collect more "grey area" data closer to the transition period
+ - do a long session run/collect data multiple times over a single day (long sequence of awake->long sequence of drowsy)
+
+
+---[Dakota Mouton - EEG Device]---
+ - Finishing FFT Live Spectrum Analzyer for graphing peak target frequencies.
+ - Start validations (hopefully) soon!

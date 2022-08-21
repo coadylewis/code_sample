@@ -1,0 +1,23 @@
+ECEN 404-906
+Team 61: Driver Drowsiness Detection System
+Update 2/22/2022 for Max Lesser
+
+---[Ali Imran - ML Model]---
+Progress: 
+- completed live analysis graph showing model classification output in real-time
+Plans:
+- collect more "grey area" training data
+- do more real-time testing (awake, in-between, drowsy)
+
+
+---[Coady Lewis - Signal Processing]---
+- tested of classification of unseen data with 1960 and 2240 windows on advancement=160
+- trained with advancement=80
+- tried training with one extra frequency band and modified limits
+   -improvement was low (easily matched by more advancement) and time cost was high.
+   -current band limits should be sufficient
+
+
+---[Dakota Mouton - EEG Device]---
+ - getting PCB ordered
+ - working on live spectrum analyzer graph in software integration

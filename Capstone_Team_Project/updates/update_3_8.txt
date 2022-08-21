@@ -1,0 +1,16 @@
+ECEN 404-906
+Team 61: Driver Drowsiness Detection System
+Update 3/8/2022 for Max Lesser
+
+---[Ali Imran - ML Model]---
+ 
+
+
+---[Coady Lewis - Signal Processing]---
+
+
+
+---[Dakota Mouton - EEG Device]---
+ - Finish PCB soldering
+ - Continue implementing software for spectrum analyzer of EEG
+ - Hopefully start validations
