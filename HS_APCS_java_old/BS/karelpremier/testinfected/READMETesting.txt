@@ -1,0 +1,1 @@
+To use the test infected framework, you need to get the JUnit from http://junit.org. That distribution contains a jar file: junit.jar. Thatjar and the jar here, KJRTest.jar must be in your classpath along withKarelJRobot.jar. If you use an IDE, add the new jar files to your projectjust as you added the karel jar to it. 

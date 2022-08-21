@@ -11,25 +11,32 @@ import numpy as np
 
 
 def calc_residual(pot,i,j,al=1,ep=1):
+    # pot is the 2d potential array
+    # constants
     c1 = 1/(2*(1+al**2))
     c2 = (2*(al**2))/(1+ep)
-    if(j==0):
+    if(j==0): # account for boundary
         return c1*(2*pot[i][1]+c2*(pot[i+1][0]+ep*pot[i-1][0]))-pot[i][j]
     else:
         return c1*(pot[i][j-1]+pot[i][j+1]+c2*(pot[i+1][j]+ep*pot[i-1][j]))-pot[i][j]
 
 
-def rnd(val, d):
+def rnd(val, d): # rounding
     if(val == None):
         return None
     return int(val*(10**d))/(10**d)
 
 
 def capacitance(pot, sw, sh, al, ep=1, steps=1, finite=False):
+    # pot is the 2d potential array
+    # finite=True sets the strip width to 1 step
+    # calculate capacitance using a rectangular contour integral
+    # each sum represents a side of the rectangle
     sum1=0
     sum2=0
     sum3=0
     sum4=0
+    # In each case below, the trapezoidal approximation is used
     for i in range(sw+1+steps+int(finite)):
         if(i==0 or i==(sw+steps+int(finite))):
             sum1+=0.5*al*ep*(pot[sh-steps-1][i]-pot[sh-steps+1][i])
@@ -50,7 +57,7 @@ def capacitance(pot, sw, sh, al, ep=1, steps=1, finite=False):
     return (-1)*(sum1+sum2+sum3+sum4)
 
 
-def plot(pot):
+def plot(pot): # plots potential distribution from 2d list
     fig = plt.figure()
     ax = fig.gca(projection='3d')
     # Construct data
@@ -222,10 +229,10 @@ def getUserInput():
     return out
 
 
-# main
-para = getUserInput()
+# main (comment out the test cases when using user input)
+#para = getUserInput()
 #test cases
-#para = [3,1,2,1,3,1,60,60,1,True,False]
+para = [3,1,2,1,3,1,60,60,1,True,False]
 #para = [3,1,2,1,3,1,120,120,1,False,False]
 #para = [3,1,2,1,3,1,240,240,1,False,False]
 #para = [3,1,2,1,3,1,480,480,1,False,False]
