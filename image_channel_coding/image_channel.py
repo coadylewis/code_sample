@@ -1,6 +1,6 @@
 from PIL import Image
 from numpy import zeros, log2, array, concatenate, split, uint8, all
-from math import floor
+from math import floor,ceil
 from random import random
 from time import time
 import csv
@@ -16,15 +16,17 @@ def received(transmitted):
 	t1=time()
 	lt = len(transmitted)
 	received = zeros((lt), dtype=int)
-	for i in range(lt):
-		flip = random() < f
-		if(flip):
-			received[i] = (int(not transmitted[i]))
-		else:
-			received[i] = (int(transmitted[i]))
+	for i in range(len(transmitted)):
+		if(random() < f): #flip bit
+			if(not transmitted[i]):
+				received[i] = 1
+		else: #do not flip bit
+			if(transmitted[i]):
+				received[i] = 1
 	print(time()-t1)
 	print('received\n\n\n')
 	return received
+
 
 
 def int_to_bin_8bit(x): # scales horribly, better to flatten image array and use one_dim_int_list_to_bin_array
@@ -58,19 +60,39 @@ def repetition_encoder(x, n):
 	print('encoded\n\n\n')
 	return output
 
-
 def repetition_decoder(x, n):
 	print('decoding n='+str(n),'repetition ...')
 	t1=time()
 	x_len=len(x)
 	output = zeros((x_len//n), dtype=int)
-	for i in range(x_len//n):
-		for j in range(n):
-			output[i]+=x[i*n+j]
-		output[i]=int((n/2) < output[i])
+	if(n!=3): #very slow
+		for i in range(x_len//n):
+			output[i]=int((n/2) < sum(x[i*n:(i+1)*n]))
+	else: #optimized with multiplexer
+		for i in range(x_len//n):
+			if(x[i*n]):
+				output[i]=int(x[i*n+1] or x[i*n+2])
+			else:
+				output[i]=int(x[i*n+1] and x[i*n+2])
 	print(time()-t1)
 	print('decoded\n\n\n')
 	return output
+
+
+# def repetition_decoder(x, n):
+# 	print('decoding n='+str(n),'repetition ...')
+# 	t1=time()
+# 	x_len=len(x)
+# 	output = zeros((x_len//n), dtype=int)
+# 	for i in range(x_len//n):
+# 		if(x[i*n]):
+
+# 			output[i]=int(x[i*n+1] or x[i*n+2])
+# 		else:
+# 			output[i]=int(x[i*n+1] and x[i*n+2])
+# 	print(time()-t1)
+# 	print('decoded\n\n\n')
+# 	return output
 
 
 def is_power_2(x):
@@ -151,9 +173,21 @@ def bin_array_to_1d_int_list(data): #inverse of one_dim_int_list_to_bin_array() 
 
 
 
-def hamming_encoder(x, num_blocks): 
+def hamming_encoder(x, r): 
 	k=len(x) # num information bits
+	block_len = 2**r -1
+	message_len = 2**r - r - 1
+	# must pad zeros to get to whole number of blocks
+	output = zeros((k + (block_len - (k%block_len))),dtype=int) 
+	
+
+	
+	return 0
+
+
+def hamming_decoder(x, r):
 	# soln. here
+	return 0
 
 
 
@@ -246,23 +280,17 @@ else: # load from csv
 # print(time()-t1)
 # print(bin_array_to_1d_int_list(d1_list))
 
-# save unmodified image*************************************************************************************************************
+
 
 
 
 # modify image with basic binary symmetric channel**********************************************************************************
-# # first method; elementwise; very slow
-# for i in range(len(data)):
-#     for j in range(len(data[i])):
-#         for k in range(len(data[i][j])):
-#             data[i][j][k] = bin_8bit_to_int(received(int_to_bin_8bit(data[i][j][k])))
-# second method
 
-# data_subset_flat_bin_received = received(data_subset_flat_bin)
-# data_subset_flat_received = bin_array_to_1d_int_list(data_subset_flat_bin_received)
-# data_subset_received = one_dim_int_list_to_image_int_array([data_subset_flat_received,h,w])
-# print('image modified with basic binary symmetric channel**********************************************')
-# Image.fromarray(data_subset_received.astype(uint8)).save("basic.jpg")
+data_subset_flat_bin_received = received(data_subset_flat_bin)
+data_subset_flat_received = bin_array_to_1d_int_list(data_subset_flat_bin_received)
+data_subset_received = one_dim_int_list_to_image_int_array([data_subset_flat_received,h,w])
+print('image modified with basic binary symmetric channel**********************************************')
+Image.fromarray(data_subset_received.astype(uint8)).save("basic_bsc.jpg")
 
 
 
@@ -270,18 +298,33 @@ else: # load from csv
 
 # modify image with repetition encoded binary symmetric channel*********************************************************************
 rep = 3
-# # first method; elementwise; very slow
-# for i in range(len(data)):
-#   for j in range(len(data[i])):
-#       for k in range(len(data[i][j])):
-#           data[i][j][k] = bin_8bit_to_int(repetition_decoder(received(repetition_encoder(int_to_bin_8bit(data[i][j][k]), rep)), rep))
-# second method
 
 data_subset_flat_bin_encoded = repetition_encoder(data_subset_flat_bin,rep)
 data_subset_flat_bin_received_encoded = received(data_subset_flat_bin_encoded)
 data_subset_flat_bin_received_decoded = repetition_decoder(data_subset_flat_bin_received_encoded,rep)
+#print(all(data_subset_flat_bin==data_subset_flat_bin_received_decoded))
 data_subset_flat_received_decoded = bin_array_to_1d_int_list(data_subset_flat_bin_received_decoded)
 data_subset_received_decoded = one_dim_int_list_to_image_int_array([data_subset_flat_received_decoded,h,w])
 print('image modified with repetition encoded binary symmetric channel*********************************')
 Image.fromarray(data_subset_received_decoded.astype(uint8)).save("repetition_encoding.jpg")
 
+
+
+
+
+
+# modify image with hamming encoded binary symmetric channel*********************************************************************
+
+r = 3 # r=3 results in a Hamming(7,4) code
+# block length = 2**r -1
+# message length = 2**r - r - 1
+
+
+data_subset_flat_bin_encoded = hamming_encoder(data_subset_flat_bin,r)
+data_subset_flat_bin_received_encoded = received(data_subset_flat_bin_encoded)
+data_subset_flat_bin_received_decoded = hamming_decoder(data_subset_flat_bin_received_encoded,r)
+#print(all(data_subset_flat_bin==hamming_decoder(data_subset_flat_bin_encoded,r)))
+data_subset_flat_received_decoded = bin_array_to_1d_int_list(data_subset_flat_bin_received_decoded)
+data_subset_received_decoded = one_dim_int_list_to_image_int_array([data_subset_flat_received_decoded,h,w])
+print('image modified with hamming encoded binary symmetric channel*********************************')
+Image.fromarray(data_subset_received_decoded.astype(uint8)).save("hamming_encoding.jpg")
