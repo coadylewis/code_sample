@@ -1,5 +1,5 @@
 from PIL import Image
-from numpy import zeros, log2, array, concatenate, split, uint8, all
+from numpy import zeros, log2, array, concatenate, split, uint8, eye, all, any
 from math import floor,ceil
 from random import random
 from time import time
@@ -7,7 +7,7 @@ import csv
 
 
 input_image_path='test.jpg'
-f = 0.2 # flip probability of binary symmetric channel
+f = 0.20 # flip probability of binary symmetric channel
 # store bit vectors as boolean arrays, convert other types to this format
 
 
@@ -163,13 +163,36 @@ def bin_array_to_1d_int_list(data): #inverse of one_dim_int_list_to_bin_array() 
 	# 		output[i] += data[8*(i+1)-1-j] * (2**j)
 
 	print(time()-t1)
+	print(len(data)//8)
 	print((time()-t1)/(len(data)//8))
 	print('\n\n\n')
 	return output
 
-	
+
+def int_to_bin(x, b):
+	output = zeros((b), dtype=int)
+	while (x!=0):
+		ex = floor(log2(x))
+		output[-1-ex] = 1
+		x -= 2**ex
+	return output
 
 
+def generate_hamming_matrices(r):
+	block_len = 2**r -1
+	message_len = 2**r - r - 1
+	# construct A
+	A = []
+	for i in range(block_len):
+		if(not is_power_2(i+1)):
+			A.append(i+1)
+	bits=ceil(log2(max(A))) # works bc max(A) can't be a power of 2
+	for i in range(len(A)):
+		A[i] = int_to_bin(A[i], bits)
+	A = array(A).T
+	H = concatenate((A, eye(block_len-message_len, dtype=int)), axis=1)
+	G = concatenate((eye(message_len, dtype=int), A.T), axis=1)
+	return H, G
 
 
 
@@ -177,17 +200,40 @@ def hamming_encoder(x, r):
 	k=len(x) # num information bits
 	block_len = 2**r -1
 	message_len = 2**r - r - 1
+	num_blocks=int(ceil(k/message_len))
+	print(k)
 	# must pad zeros to get to whole number of blocks
-	output = zeros((k + (block_len - (k%block_len))),dtype=int) 
-	
-
-	
-	return 0
+	print(block_len - (k%block_len))
+	data = x#concatenate((zeros((block_len - (k%block_len)),dtype=int), x))
+	print(len(data))
+	output = zeros((num_blocks*block_len),dtype=int) 
+	H, G = generate_hamming_matrices(r)
+	for i in range(num_blocks):
+		output[i*block_len:(i+1)*block_len] = data[i*message_len:(i+1)*message_len].dot(G)%2 
+	print('hamming encoded')
+	return output
 
 
 def hamming_decoder(x, r):
-	# soln. here
-	return 0
+	k=len(x) # num information bits
+	print(k)
+	block_len = 2**r -1
+	message_len = 2**r - r - 1
+	num_blocks=int(k/block_len)
+	#print(num_blocks)
+	output = zeros((num_blocks*message_len),dtype=int) 
+	H, G = generate_hamming_matrices(r)
+	for i in range(num_blocks):
+		# print(x[i*block_len:(i+1)*block_len].T)
+		syndrome = H.dot(x[i*block_len:(i+1)*block_len].T)%2
+		# Error Case
+		if(any(syndrome)): # executes when at least one value in the vector is non zero
+			for j in range(block_len):
+				if(all(syndrome == H[:,j])): # check syndrome against each column
+					x[i*block_len + j] = (x[i*block_len + j] + 1) % 2 # correct error
+		output[i*message_len:(i+1)*message_len] = x[i*block_len:i*block_len + message_len]
+	print('hamming decoded')
+	return output
 
 
 
@@ -296,7 +342,7 @@ Image.fromarray(data_subset_received.astype(uint8)).save("basic_bsc.jpg")
 
 
 
-# modify image with repetition encoded binary symmetric channel*********************************************************************
+# # modify image with repetition encoded binary symmetric channel*********************************************************************
 rep = 3
 
 data_subset_flat_bin_encoded = repetition_encoder(data_subset_flat_bin,rep)
@@ -323,8 +369,14 @@ r = 3 # r=3 results in a Hamming(7,4) code
 data_subset_flat_bin_encoded = hamming_encoder(data_subset_flat_bin,r)
 data_subset_flat_bin_received_encoded = received(data_subset_flat_bin_encoded)
 data_subset_flat_bin_received_decoded = hamming_decoder(data_subset_flat_bin_received_encoded,r)
+offset = len(data_subset_flat_bin_received_decoded)%4 # count padded zeros
+print(len(data_subset_flat_bin_received_decoded))
+print(offset)
 #print(all(data_subset_flat_bin==hamming_decoder(data_subset_flat_bin_encoded,r)))
-data_subset_flat_received_decoded = bin_array_to_1d_int_list(data_subset_flat_bin_received_decoded)
+print(all(data_subset_flat_bin==data_subset_flat_bin_received_decoded))
+print(data_subset_flat_bin)
+print(data_subset_flat_bin_received_decoded[offset:])
+data_subset_flat_received_decoded = bin_array_to_1d_int_list(data_subset_flat_bin_received_decoded[offset:])
 data_subset_received_decoded = one_dim_int_list_to_image_int_array([data_subset_flat_received_decoded,h,w])
 print('image modified with hamming encoded binary symmetric channel*********************************')
 Image.fromarray(data_subset_received_decoded.astype(uint8)).save("hamming_encoding.jpg")
